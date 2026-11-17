@@ -42,6 +42,25 @@ Java · JSP/Servlet · JDBC · Oracle Database · HTML/CSS/JavaScript · 제브 
 > API Key는 서버(Java)에서만 쓰고 브라우저로 보내지 않아요. config.properties를 Git이나 단톡방에 올리지 마세요.
 > 마이크는 `localhost`에서만 http로 허용돼요. 다른 컴퓨터에서 IP로 접속하면 https가 필요해요.
 
+### 학교 서버에 배포하기
+
+학교 온프레미스 서버(`ssh.gsmsv.site`, 포트 24182)에 이미 설치되어 있어요: Java 17, Tomcat 10.1(`/opt/tomcat`, systemd `tomcat`), Docker의 Oracle XE 11(`oracle-xe`, 서버 내부 1521만 열림).
+
+**코드를 고친 뒤 다시 배포** — `deploy_server.bat` 더블클릭
+→ 지금 폴더의 소스(커밋 안 한 수정 포함)를 서버로 올려 컴파일 → Tomcat 배포 → 응답 확인까지 해요. 서버 쪽 작업은 `tools/server_deploy.sh`.
+
+- SSH **키**가 등록된 PC에서만 동작해요 (`~/.ssh/id_ed25519`, 비밀번호 입력 없음)
+- `config.properties`는 올라가지 않아요. 서버의 API Key·DB 비밀번호는 `/etc/jebris/*.env`(root만 읽기 가능)에 환경변수로 들어 있어요
+- DB 테이블은 건드리지 않아요 (데이터 유지)
+
+**접속** — 서버가 학교 NAT 안에 있어 웹 포트가 밖에서 안 보여요. SSH 터널을 열고 `http://localhost:8091/JEBRIS/` 로 접속하세요 (localhost라 마이크도 동작해요).
+
+```bash
+ssh -N -o ServerAliveInterval=30 -p 24182 -L 8091:localhost:8080 ubuntu@ssh.gsmsv.site
+```
+
+> 다른 사람에게 공개하려면 학교 쪽에서 도메인 + HTTPS 프록시를 연결해 줘야 해요 (담당 선생님 문의).
+
 ---
 
 ## 시연 시나리오
