@@ -25,3 +25,7 @@ publish_log.txt
 .claude/settings.local.json
 Thumbs.db
 .DS_Store
+
+# ---- 작업용 임시 파일 ----
+*.tgz
+HANDOVER.md
