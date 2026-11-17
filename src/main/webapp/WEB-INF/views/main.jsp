@@ -14,6 +14,7 @@
 <%@ include file="/WEB-INF/views/common/head.jspf" %>
 <script src="<%= ctx %>/js/clap.js" defer></script>
 <script src="<%= ctx %>/js/gestures.js" defer></script>
+<script src="<%= ctx %>/js/holo.js" defer></script>
 <script src="<%= ctx %>/js/jarvis.js" defer></script>
 <script type="module" src="<%= ctx %>/js/vision.js"></script>
 </head>
@@ -47,15 +48,14 @@
             <div class="clock-date" id="clockDate"></div>
         </div>
 
-        <div class="core" id="core" data-state="idle">
-            <div class="ring r1"></div>
-            <div class="ring r2"></div>
-            <div class="ring r3"></div>
-            <div class="ring r4"></div>
-            <div class="core-dot"></div>
+        <!-- 홀로그램 코어 (js/holo.js가 SVG를 그림) -->
+        <div class="holo" id="core" data-state="idle">
+            <div class="holo-glow" aria-hidden="true"></div>
+            <div class="holo-label">
+                <div class="holo-name">J.E.B.R.I.S</div>
+                <div class="state-label" id="stateLabel">대기 중</div>
+            </div>
         </div>
-
-        <div class="state-label" id="stateLabel">대기 중</div>
         <div class="transcript" id="transcript">마이크를 누르고 말을 걸어 보세요</div>
 
         <button type="button" class="mic-btn" id="micBtn" aria-label="말하기 시작">
