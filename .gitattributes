@@ -2,3 +2,4 @@
 # 윈도우 배치 파일은 CP949 + CRLF 그대로 보존
 *.bat -text
 *.jar binary
+*.sh text eol=lf
