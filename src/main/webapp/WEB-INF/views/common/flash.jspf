@@ -1,0 +1,11 @@
+<div class="toast-wrap" id="toastWrap">
+<%
+    String flashMsg = (String) session.getAttribute("flash");
+    String flashType = (String) session.getAttribute("flashType");
+    if (flashMsg != null) {
+        session.removeAttribute("flash");
+        session.removeAttribute("flashType");
+%>
+    <div class="toast toast-<%= H.e(flashType == null ? "info" : flashType) %>" role="status"><%= H.e(flashMsg) %></div>
+<%  } %>
+</div>

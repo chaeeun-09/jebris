@@ -1,0 +1,22 @@
+<%
+    jebris.dto.Member navMember = (jebris.dto.Member) session.getAttribute("loginMember");
+%>
+<header class="topbar">
+    <a class="brand" href="<%= ctx %>/main">
+        <span class="brand-ring" aria-hidden="true"></span>
+        <span class="brand-text">J.E.B.R.I.S</span>
+    </a>
+    <nav class="menu">
+        <a href="<%= ctx %>/main" class="<%= "main".equals(activeMenu) ? "active" : "" %>">메인</a>
+        <a href="<%= ctx %>/schedule" class="<%= "schedule".equals(activeMenu) ? "active" : "" %>">일정</a>
+        <a href="<%= ctx %>/history" class="<%= "history".equals(activeMenu) ? "active" : "" %>">대화 기록</a>
+        <a href="<%= ctx %>/mypage" class="<%= "mypage".equals(activeMenu) ? "active" : "" %>">내 정보</a>
+    </nav>
+    <div class="user">
+        <span class="user-name"><b><%= H.e(navMember == null ? "" : navMember.getMemberName()) %></b>님</span>
+        <form method="post" action="<%= ctx %>/logout">
+            <button type="submit" class="btn btn-ghost btn-sm">로그아웃</button>
+        </form>
+    </div>
+</header>
+<%@ include file="/WEB-INF/views/common/flash.jspf" %>

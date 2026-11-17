@@ -1,0 +1,9 @@
+feat: J.E.B.R.I.S 음성 AI 비서 웹 서비스 첫 업로드
+
+- JSP/Servlet + JDBC + Oracle 11g XE 기반 회원, 일정, 대화 기록 CRUD
+- 제브 AI Hub flash-next(답변, 일정 추출)와 supertonic(음성) 연동
+- start_jebris.bat 원클릭 실행 (DB 확인, 빌드, Tomcat 배포, 실행)
+- config.properties, local.bat, ojdbc 드라이버는 Git에서 제외
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01YCjyfwz2ExPuofVk7oTz86

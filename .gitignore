@@ -1,0 +1,27 @@
+# ---- 비밀 정보 (절대 올리지 않음) ----
+src/main/java/config.properties
+local.bat
+.env
+.env.*
+
+# ---- Oracle JDBC 드라이버 (Oracle 설치 폴더에서 자동 복사) ----
+*.jar
+
+# ---- 빌드 결과 / 로그 ----
+build/
+bin/
+*.class
+*.log
+run_log.txt
+setup_db_log.txt
+publish_log.txt
+
+# ---- IDE / OS ----
+.metadata/
+.recommenders/
+.idea/
+*.iml
+.vscode/
+.claude/settings.local.json
+Thumbs.db
+.DS_Store

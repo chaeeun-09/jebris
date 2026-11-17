@@ -1,0 +1,19 @@
+# =====================================================
+#  J.E.B.R.I.S 설정 파일
+#  API Key와 DB 비밀번호가 들어가니 Git이나 단톡방에 올리지 마세요.
+#  (같은 이름의 환경변수가 있으면 환경변수가 우선합니다. 예: JEB_APIKEY)
+# =====================================================
+
+# ---- Oracle Database ----
+# 이 PC: Oracle 11g XE (SID: XE, 포트 1521)
+db.url=jdbc:oracle:thin:@localhost:1521:XE
+db.user=jebris
+db.password=jebris
+
+# ---- 제브 AI Hub ----
+# 대시보드(https://jeb.https.gsmsv.site)에서 발급한 키를 넣으세요. 권한: 전체 또는 LLM + 음성 합성
+# ▼ 여기에 키를 붙여 넣으세요 (YOUR_API_KEY를 지우고)
+jeb.apiKey=YOUR_API_KEY
+jeb.baseUrl=https://jeb.https.gsmsv.site/v1
+jeb.chatModel=flash-next
+jeb.ttsModel=supertonic
